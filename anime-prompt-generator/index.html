@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Anime Prompt Generator</title>
+  <meta name="description" content="Generate randomized anime character and place prompts for AI image generators." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#prompt-display">Skip to prompt</a>
+
+  <header class="site-header">
+    <h1 class="site-title">Random Anime Prompt Generator</h1>
+    <div class="appearance-control">
+      <label for="appearanceSelect">Appearance</label>
+      <select id="appearanceSelect">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Mode selector -->
+    <section class="panel" aria-labelledby="mode-heading">
+      <h2 id="mode-heading" class="panel-title">Mode</h2>
+      <div class="radio-row" role="radiogroup" aria-label="Generation mode">
+        <label><input type="radio" name="mode" value="characters" checked /> Characters</label>
+        <label><input type="radio" name="mode" value="places" /> Places</label>
+        <label><input type="radio" name="mode" value="both" /> Both</label>
+      </div>
+
+      <!-- Character filter (only active for character generation) -->
+      <fieldset id="characterFilterFieldset" class="filter-fieldset">
+        <legend>Character filter</legend>
+        <div class="radio-row" role="radiogroup" aria-label="Character filter">
+          <label><input type="radio" name="characterFilter" value="all" checked /> All</label>
+          <label><input type="radio" name="characterFilter" value="main" /> Main</label>
+          <label><input type="radio" name="characterFilter" value="side" /> Side</label>
+          <label><input type="radio" name="characterFilter" value="female" /> Female</label>
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- Prompt display -->
+    <section id="prompt-display" class="panel prompt-panel" aria-labelledby="prompt-heading">
+      <h2 id="prompt-heading" class="panel-title">Prompt</h2>
+      <output id="promptOutput" class="prompt-output" aria-live="polite">
+        Press Generate Prompt to create your first prompt.
+      </output>
+
+      <!-- Prompt actions -->
+      <div class="prompt-actions">
+        <button id="copyBtn" type="button" class="btn btn-secondary">Copy</button>
+        <button id="favoriteBtn" type="button" class="btn btn-secondary">Favorite</button>
+      </div>
+      <p id="copyStatus" class="status" role="status" aria-live="polite"></p>
+
+      <!-- Prompt-part chips with locks -->
+      <h3 class="sub-title">Parts &amp; locks</h3>
+      <div id="chipRow" class="chip-row"></div>
+    </section>
+
+    <!-- Generate button -->
+    <button id="generateBtn" type="button" class="btn btn-primary generate-btn">
+      Generate Prompt
+    </button>
+
+    <!-- History -->
+    <section class="panel" aria-labelledby="history-heading">
+      <div class="panel-head-row">
+        <h2 id="history-heading" class="panel-title">History</h2>
+        <button id="clearHistoryBtn" type="button" class="btn btn-ghost">Clear</button>
+      </div>
+      <ul id="historyList" class="entry-list"></ul>
+    </section>
+
+    <!-- Favorites -->
+    <section class="panel" aria-labelledby="favorites-heading">
+      <div class="panel-head-row">
+        <h2 id="favorites-heading" class="panel-title">Favorites</h2>
+        <button id="clearFavoritesBtn" type="button" class="btn btn-ghost">Clear</button>
+      </div>
+      <ul id="favoritesList" class="entry-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="muted">Prompts are text only — copy them into your favorite AI image generator.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

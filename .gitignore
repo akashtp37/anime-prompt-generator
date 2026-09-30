@@ -1,0 +1,11 @@
+# Freebuff local preview state (per-thread logs, project id, run notes)
+.freebuff/
+
+# Dependencies (the app itself has none; keeps future installs out)
+node_modules/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
